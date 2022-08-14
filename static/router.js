@@ -1,12 +1,10 @@
 const toPage = (url) =>{
     window.history.pushState({},"",url)
-    console.log("onpushstate" + url);
     getPage(url);
 };
 
 window.onpopstate = () =>{
     let url = location.pathname;
-    console.log("onpopstate" + url);
     getPage(url);
 };
 
@@ -20,5 +18,8 @@ const getPage = (url) => {
 }
 
 let url = location.pathname;
-    console.log(url);
     getPage(url);
+
+
+
+

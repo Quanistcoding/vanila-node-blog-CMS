@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src = "./static/router.js"></script>
+  <script src = "./static/login.js"></script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 550px}
@@ -52,19 +53,14 @@
     <div class="col-sm-3 sidenav hidden-xs">
       <h2>Logo</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Dashboard</a></li>
+        <li><a href="" onclick = "toPage('/')">Dashboard</a></li>
         <li><a href="" onclick = "toPage('createNewPost')">Create New Post</a></li>
-        <li><a href="#section3">Gender</a></li>
-        <li><a href="#section3">Geo</a></li>
       </ul><br>
     </div>
     <br>
     
     <div class="col-sm-9">
-      <div class="well">
-        <h4>Dashboard</h4>
-        <p>Blogposts</p>
-      </div>
+      
       <div class="row">
         <div id = "content"></div>
       </div>
