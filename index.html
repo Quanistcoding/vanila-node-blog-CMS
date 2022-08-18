@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>BLOG CMS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -39,10 +39,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Age</a></li>
-        <li><a href="#">Gender</a></li>
-        <li><a href="#">Geo</a></li>
+        <li><a href="" onclick = "toPage('/')">Dashboard</a></li>
+        <li><a href="" onclick = "toPage('createNewPost')">Create New Post</a></li>
+        <button class="btn btn-primary" id = "logoutButton1" onclick = "logout()">Log out</button>
       </ul>
     </div>
   </div>
@@ -55,6 +54,7 @@
       <ul class="nav nav-pills nav-stacked">
         <li><a href="" onclick = "toPage('/')">Dashboard</a></li>
         <li><a href="" onclick = "toPage('createNewPost')">Create New Post</a></li>
+        <button class="btn btn-primary" id = "logoutButton2" onclick = "logout()">Log out</button>
       </ul><br>
     </div>
     <br>
@@ -68,5 +68,22 @@
   </div>
 </div>
 </div>
+<script>
+ 
+
+
+
+
+  function logout(){
+    setCookie("email","",0.1);
+        setCookie("password","",0.1);
+        setCookie("isLoggedin","false",0.1);
+        if(document.getElementById('findifisloggedin')){
+          alert("Your are not logged in yet!")
+        }else{
+        location.reload(true);
+      }
+  };
+</script>
 </body>
 </html>

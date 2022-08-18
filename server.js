@@ -12,20 +12,18 @@ let isUser = false;
 const server = http.createServer((req,res)=>{
     
     let auth = cp.cookie_parser(req.rawHeaders[req.rawHeaders.length-1]);
-    console.log(auth);
 
     let isUserIndexEmail = users.findIndex(x=>x.email == auth.email);
     let isUserIndexPwd = users.findIndex(x=>x.password == auth.password);
-    console.log(isUserIndexPwd);
     isUser = (isUserIndexEmail != -1 && isUserIndexPwd != -1) ?true:false;
 
-console.log(isUser);
+let cookieForLoggedin = isUser ? "isLoggedin=true":"isLoggedin=false";
 
 
     if(req.url === "/"){
         fs.readFile("index.html",(err,data)=>{
             if(err)console.log(err);
-            res.writeHead(200,'Content-Type','text/html');
+            res.writeHead(200,{'Set-Cookie': cookieForLoggedin, 'Content-Type': 'text/html'});
             res.write(data);
             res.end();
         })
@@ -44,11 +42,7 @@ console.log(isUser);
                 res.write(data);
                 res.end();
             });    
-        }
-
-
-
-
+        }else{
         if(req.url == "/pages//"){
             fs.readFile("./pages/home.html",(err,data)=>{
                 if(err)console.log(err);
@@ -61,11 +55,10 @@ console.log(isUser);
             res.write(data);
             res.end();
         });
-     };
+     }};
     }else{
         fs.readFile("index.html",(err,data)=>{
             if(err)console.log(err);
-            res.writeHead(200,'Content-Type','text/html');
             res.write(data);
             res.end();
         })
